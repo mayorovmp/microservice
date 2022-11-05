@@ -6,6 +6,7 @@ import org.apache.ignite.configuration.IgniteConfiguration;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import ru.example.microservice.entity.Version;
 
 import javax.cache.expiry.Duration;
 import javax.cache.expiry.ModifiedExpiryPolicy;
@@ -18,7 +19,7 @@ public class CacheIgniteConfiguration {
     public SpringCacheManager cacheManager() {
         SpringCacheManager mgr = new SpringCacheManager();
 
-        var cacheCfg = new CacheConfiguration<String, String>("version");
+        var cacheCfg = new CacheConfiguration<String, Version>("version");
 
         cacheCfg.setExpiryPolicyFactory(ModifiedExpiryPolicy.factoryOf(new Duration(TimeUnit.SECONDS, 30)));
 

@@ -18,7 +18,6 @@ public class VersionServiceImpl implements VersionService {
 
     @Override
     @Transactional(readOnly = true)
-    @Cacheable(cacheNames = "version")
     public Version getCurrentVersion() {
         return versionRepository.getCurrentVersion()
                 .orElseThrow(() -> new EntityNotFoundException("Версий не найдено"));

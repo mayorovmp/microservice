@@ -41,7 +41,7 @@ ignite:
 #            ID: java.lang.Long
 #            amount: java.lang.Double
 #            updateDate: java.util.Date
-    - name: version
+#    - name: version
 
 
 ignite-client:

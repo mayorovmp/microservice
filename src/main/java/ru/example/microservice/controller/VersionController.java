@@ -18,6 +18,7 @@ public class VersionController {
     private final VersionService versionService;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @Cacheable(cacheNames = "version")
     public ResponseEntity<Version> get() {
         return ResponseEntity.ok(versionService.getCurrentVersion());
     }
