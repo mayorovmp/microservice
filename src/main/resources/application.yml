@@ -1,0 +1,50 @@
+spring:
+  datasource:
+    # url: jdbc:h2:mem:mydb
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+    hikari:
+      maximum-pool-size: 1
+      pool-name: pool
+  jpa:
+    defer-datasource-initialization: true
+    show-sql: true
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+  sql:
+    init:
+      data-locations: classpath:data.sql
+      schema-locations: classpath:schema.sql
+jobs:
+  version-up:
+    # EVERY 5 SECONDS
+    cron: "*/5 * * ? * *"
+# Настройка сервера Ignite
+ignite:
+  igniteInstanceName: instance-name
+  communicationSpi:
+    localPort: 5555
+  dataStorageConfiguration:
+    defaultDataRegionConfiguration:
+      initialSize: 10485760 #10MB
+    dataRegionConfigurations:
+      - name: my-dataregion
+        initialSize: 104857600 #100MB
+  cacheConfiguration:
+#    - name: accounts
+#      queryEntities:
+#        - tableName: ACCOUNTS
+#          keyFieldName: ID
+#          keyType: java.lang.Long
+#          valueType: java.lang.Object
+#          fields:
+#            ID: java.lang.Long
+#            amount: java.lang.Double
+#            updateDate: java.util.Date
+    - name: version
+
+
+ignite-client:
+  addresses: 127.0.0.1:10800 # this is mandatory property!
+  timeout: 10000
+  tcpNoDelay: false

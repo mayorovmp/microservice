@@ -1,0 +1,5 @@
+   _     _     _     _
+  / \   / \   / \   / \
+ ( S ) ( B ) ( E ) ( R )
+  \_/   \_/   \_/   \_/
+Powered by Spring Boot ${spring-boot.version}
