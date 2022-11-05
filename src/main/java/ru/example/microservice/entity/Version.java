@@ -5,9 +5,9 @@ import lombok.*;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
-@Data
 @Entity
 @Builder
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "version")
